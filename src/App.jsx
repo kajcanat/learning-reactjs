@@ -4,6 +4,8 @@ class App extends React.Component {
    constructor() {
     super();
     this.state = {
+      header: "Header from state...",
+      content: "Content from state",
       data: 
       [
 	{"id":1, name:"John", age:21},
@@ -21,6 +23,10 @@ class App extends React.Component {
 		{this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
 		</tbody>
 	    </table>
+	    <div>
+	     <h1>{this.state.header}</h1>
+	     <h1>{this.state.content}</h1>
+	    </div>
          </div>
       );
    }
