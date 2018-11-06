@@ -6,27 +6,21 @@ class App extends React.Component {
     this.state = {
       header: "Header from state...",
       content: "Content from state",
-      data: 
-      [
-	{"id":1, name:"John", age:21},
-	{"id":2, name:"Bob", age:31},
-	{"id":3, name:"Francine", age:41}
-      ]
+      data: []
     } 
-   }
+    this.setStateHandler = this.setStateHandler.bind(this);
+   };
+   setStateHandler()  {
+     var item = "setState...";
+     var myArray = this.state.data.slice();
+         myArray.push(item);
+     this.setState({data: myArray})	
+   };
    render() {
       return (
          <div>
-            <Header/>
-            <table>
-		<tbody>
-		{this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
-		</tbody>
-	    </table>
-	    <div>
-	     <h1>{this.state.header}</h1>
-	     <h1>{this.state.content}</h1>
-	    </div>
+	  <button onClick = {this.setStateHandler}>SET STATE</button>
+	  <h4>State array: {this.state.data}</h4>
          </div>
       );
    }
