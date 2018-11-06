@@ -24,12 +24,16 @@ class App extends React.Component {
 		</tbody>
 	    </table>
 	    <div>
-	     <h1>{this.state.header}</h1>
-	     <h1>{this.state.content}</h1>
+	     <h1>{this.props.headerProp}</h1>
+	     <h1>{this.props.contentProp}</h1>
 	    </div>
          </div>
       );
    }
+}
+App.defaultProps = {
+  headerProp: "Header from props...",
+  contentProp: "Content from props..."
 }
 class Header extends React.Component {
    render() {
