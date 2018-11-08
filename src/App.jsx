@@ -24,7 +24,7 @@ class Header extends React.Component {
    render() {
       return (
          <div>
-            <h1>Forms complex</h1>
+            <h1>Events complex</h1>
          </div>
       );
    }
