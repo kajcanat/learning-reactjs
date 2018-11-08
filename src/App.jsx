@@ -5,25 +5,21 @@ class App extends React.Component {
    constructor(props) {
     super(props);
     this.state = {
-      data: 'Apple'
+      data: [ 
+	{component: 'Annas',id:4},
+	{component: 'Apple',id:1},
+	{component: 'Orange',id:2},
+	{component: 'Pear',id:3}
+      ]
     }
-    this.updateState = this.updateState.bind(this); 
-    this.clearInput = this.clearInput.bind(this);	
    };
-   updateState(e) {
-     this.setState({data: e.target.value});
-   }
-   clearInput() {
-     this.setState({data: ''});
-     ReactDOM.findDOMNode(this.refs.myInput).focus();
-   }
    render() {
       return (
          <div>
             <Header/>
-	    <input value = {this.state.data} onChange= {this.updateState} ref = "myInput"></input>
-	    <button onClick = {this.clearInput}>Clear</button>
-	    <h4>{this.state.data}</h4>	
+	    <div>
+	    {this.state.data.map((dynamicComponent, i) => <Content key= {i} componentData = {dynamicComponent}/>)}
+	    </div>	
          </div>
       );
    }
@@ -32,7 +28,17 @@ class Header extends React.Component {
    render() {
       return (
          <div>
-            <h1>Refs</h1>
+            <h1>Keys</h1>
+         </div>
+      );
+   }
+}
+class Content extends React.Component {
+   render() {
+      return (
+         <div>
+            <div>{this.props.componentData.component}</div>
+	    <div>{this.props.componentData.id}</div>
          </div>
       );
    }
