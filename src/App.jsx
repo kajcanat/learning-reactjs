@@ -1,31 +1,22 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class App extends React.Component {
    constructor() {
     super();
-    this.state = {
-      header: "Header from state...",
-      content: "Content from state",
-      data: 
-      [
-	{"id":1, name:"John", age:21},
-	{"id":2, name:"Bob", age:31},
-	{"id":3, name:"Francine", age:41}
-      ]
-    } 
+    this.findDomNodeHandler = this.findDomNodeHandler.bind(this);
+   };
+   findDomNodeHandler() {
+    let node = document.getElementById('node'); 
+    ReactDOM.findDOMNode(node).style.color = 'blue';
    }
    render() {
       return (
          <div>
             <Header/>
-            <table>
-		<tbody>
-		{this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
-		</tbody>
-	    </table>
-	    <div>
-	     <h1>{this.state.header}</h1>
-	     <h1>{this.state.content}</h1>
+            <div>
+	     <button onClick={this.findDomNodeHandler}>Find DOM node</button>
+	<div id="node">Node</div>
 	    </div>
          </div>
       );
@@ -35,28 +26,7 @@ class Header extends React.Component {
    render() {
       return (
          <div>
-            <h1>Header</h1>
-         </div>
-      );
-   }
-}
-class TableRow extends React.Component {
-  render() {
-    return (
-	<tr>
-	<td>{this.props.data.id}</td>
-	<td>{this.props.data.name}</td>
-	<td>{this.props.data.age}</td>
-	</tr>
-    );
-  }
-}
-class Content extends React.Component {
-   render() {
-      return (
-         <div>
-            <h2>Content</h2>
-            <p>The content text!!!</p>
+            <h1>Find Dom Node</h1>
          </div>
       );
    }
