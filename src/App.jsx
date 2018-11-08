@@ -9,7 +9,7 @@ class App extends React.Component {
     this.updateState = this.updateState.bind(this);
    };
    updateState(e) {
-     this.setState({data: e.target.value});
+     this.setState({data: 'Orange'});
    }
    render() {
       return (
@@ -33,7 +33,7 @@ class Content extends React.Component {
    render() {
       return (
          <div>
-	   <input type="text" value={this.props.myDataProp} onChange={this.props.updateStateProp}/>
+	   <button onClick= {this.props.updateStateProp}>Click</button>
            <h3>{this.props.myDataProp}</h3>
          </div>
       );
