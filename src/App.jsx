@@ -9,13 +9,13 @@ class App extends React.Component {
     this.updateState = this.updateState.bind(this); 
    };
    updateState(e) {
-     this.setState({data: e.target.value});
+     this.setState({data: 'Orange'});
    }
    render() {
       return (
          <div>
             <Header/>
-		<input type="text" value={this.state.data} onChange={this.updateState} />
+		<button onClick={this.updateState}>Click</button>
 	 <h4>{this.state.data}</h4>
          </div>
       );
@@ -25,7 +25,7 @@ class Header extends React.Component {
    render() {
       return (
          <div>
-            <h1>Forms simple</h1>
+            <h1>Events simple</h1>
          </div>
       );
    }
